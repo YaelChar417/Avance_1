@@ -4,7 +4,7 @@ ATRIBUTOS: nombre, raza, color, altura, largo, peso, edad.
 Métodos: get(), set(), crecer(years).
 constructor
 */
-
+#include <cctype>
 #include <string>
 using namespace std;
 
@@ -34,6 +34,7 @@ class Animal {
 		void set_peso(float );
 		void set_edad(int);
 		void crecer(int);
+		bool buscar_animal(string); // añadir esta funcion
 };
 
 string Animal::get_nombre(){
@@ -97,5 +98,27 @@ void Animal::crecer(int year){
 		altura = altura * 1.02;
 		largo = largo * 1.02;
 		peso = peso * 1.01;
+	}
+}
+
+bool Animal::buscar_animal(string nombre_animal){
+	int valor;
+	
+	for (int i = 0; i < nombre_animal.size(); i++){
+		nombre_animal[i] = tolower(nombre_animal[i]);
+	}
+	
+	if (nombre_animal == "alex"){
+		return valor = 1;
+	} else{
+		if (nombre_animal == "smoke"){
+			return valor = 1;
+		}else{
+			if (nombre_animal == "silvestre"){
+				return valor = 1;
+			}else{
+				return valor = 0;
+			}
+		}
 	}
 }

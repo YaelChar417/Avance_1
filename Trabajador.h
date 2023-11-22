@@ -89,17 +89,13 @@ class Trabajador{
 		Trabajador(float pago_h, int h, int d):pago_hora(pago_h), horas(h), dias(d){};
 		
 		//getters
-		//string get_nombre();
 		float get_pago_hora();
 		int get_horas();
 		int get_dias();
-		//int get_id();
 		//setters
-		//void set_nombre(string);
 		void set_pago_hora(float);
 		void set_horas(int);
 		void set_dias(int);
-		//void set_id(int);
 		//metodos de la clase
 		float sueldo_diario(float, int);
 		float sueldo_semanal(float, int);
@@ -118,15 +114,6 @@ class Trabajador{
 		}
 		
 };
-
-/*string Trabajador::get_nombre(){
-	return nombre;
-}
-
-void Trabajador::set_nombre(string nom){
-	nombre = nom;
-}
-*/
 float Trabajador::get_pago_hora(){
 	return pago_hora;
 }
@@ -150,15 +137,6 @@ int Trabajador::get_dias(){
 void Trabajador::set_dias(int d){
 	dias = d;
 }
-
-/*int Trabajador::get_id(){
-	return id;
-}
-
-void Trabajador::set_id(int i){
-	id = i;
-}*/
-
 float Trabajador::sueldo_diario(float pago_hora, int horas){
 	float paga_diaria;
 	paga_diaria = pago_hora * horas;

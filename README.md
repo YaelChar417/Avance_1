@@ -5,11 +5,17 @@ Yael Charles Marin.
 A01711111
 
 ##Novedades avance 3:
+- La clase Animal y la clase Servicios ahora son clases padres de 3 clases cada una.
+
+- La clase Trabajador tiene ahora una composicion de datos del trabajador
+
 - Se modifico el UML para hacerlo mas simple debido a que las clases padre heredan sus atributos y metodos a las clases hijas.
 
 - En la clase animal se añadio una funcion de mostrar_datos(), que reduce significativamente la cantidad de codigo del main.
 
 - En el main ahora cuenta con divisiones en las clases Animal y servicios para seleccionar a cual de las clases hijas se desea acceder, por ejemplo puedes seleccionar acceder a la clase Animal y a la subclase Ave o acceder a la clase Servicios y la subclase corte de pelo.
+
+- Ahora en el main de la parte de la clase servicios, no se permite ingresar los valores de tipo de servicio, precio y duracion al usuario debido a que esos valores ya estarían preestablecidos y solo se le permite ingresar cuantas mascotas recibirán un servicio.
 
 ## Novedades avance 2:
 - Se añadio un UML explicando las futuras actualizaciones.

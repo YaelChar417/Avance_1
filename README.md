@@ -4,7 +4,7 @@
 Yael Charles Marin.
 A01711111
 
-##Novedades avance 3:
+## Novedades avance 3:
 - La clase Animal y la clase Servicios ahora son clases padres de 3 clases cada una.
 
 - La clase Trabajador tiene ahora una composicion de datos del trabajador

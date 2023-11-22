@@ -4,6 +4,13 @@
 Yael Charles Marin.
 A01711111
 
+##Novedades avance 3:
+- Se modifico el UML para hacerlo mas simple debido a que las clases padre heredan sus atributos y metodos a las clases hijas.
+
+- En la clase animal se añadio una funcion de mostrar_datos(), que reduce significativamente la cantidad de codigo del main.
+
+- En el main ahora cuenta con divisiones en las clases Animal y servicios para seleccionar a cual de las clases hijas se desea acceder, por ejemplo puedes seleccionar acceder a la clase Animal y a la subclase Ave o acceder a la clase Servicios y la subclase corte de pelo.
+
 ## Novedades avance 2:
 - Se añadio un UML explicando las futuras actualizaciones.
 

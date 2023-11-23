@@ -4,6 +4,18 @@
 Yael Charles Marin.
 A01711111
 
+## Funcionamiento del programa:
+Primero comienzas decidiendo entre 1-3 opciones entre las diferentes tres clases, aquí podría fallar el programa si se le ingresa un numero diferente.
+
+CASO 1:
+tienes tres opciones nuevas así que puedes ingresar 1-3 entre las diferentes clases canino, felino, ave, donde podría fallar de la mmisma forma ingresando un numero invalido, dentro de estas la unica forma de romper el programa es si ingresa un dato no correspondiente a su tipo, como si te preguntasen el peso e ingresas caracteres.
+
+CASO 2:
+te pide ingresar datos de tipo string, int y float donde la forma de romper el codigo sería si fallase en ingresar un tipo de dato diferente
+
+CASO 3: 
+al entrar te deja seleccionar entre tres diferentes opciones así que podría fallar si ingresaras un numero invalido, ingresas a una de las subclases ya sea vacunacion, desparacitacion o corte de pelo, donde estos tres ya tienen los parametros de tipo de servicio, precio y la duracion solo dejandote ingresar el numero de animales así que solo fallaria si ingresas un string o un numero float.
+
 ## Novedades avance 3:
 - La clase Animal y la clase Servicios ahora son clases padres de 3 clases cada una.
 

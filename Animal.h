@@ -1,3 +1,17 @@
+/*
+ * Proyecto Veterinaria
+ * Yael Charles Marin
+ * A01711111
+ * 30/11/2023
+ */
+
+/*
+ * Clase Animal, es el esqueleto para 3 clases hijas 
+ * donde tiene parametros de los datos de un animal
+ * ademas de metodos que permiten buscar al animal
+ * o mostrar los datos de este al usuario
+ */
+
 #include <cctype>
 #include <string>
 #include <vector>
@@ -11,8 +25,10 @@ class Animal {
 		int edad;
 		
 	public: //Metodos que igualmente se heredarán
+		// constructores de la clase Animal
 		Animal(): nombre(""), raza(""), color(""), altura(0.0), largo(0.0), peso(0.0), edad(0){};
 		Animal(string nom, string raz, string col, float alt, float lar, float pes, int ed): nombre(nom), raza(raz), color(col), altura(alt), largo(lar), peso(pes), edad(ed){};
+		//getters de la clase Animal
 		string get_nombre();
 		string get_raza();
 		string get_color();
@@ -20,7 +36,7 @@ class Animal {
 		float get_largo();
 		float get_peso();
 		int get_edad();
-		
+		// setters de la clase Animal
 		void set_nombre(string );
 		void set_raza(string );
 		void set_color(string );
@@ -28,6 +44,7 @@ class Animal {
 		void set_largo(float );
 		void set_peso(float );
 		void set_edad(int);
+		// metodos de la clase animal
 		void crecer(int);
 		int buscar_animal(string);
 		void mostrar_datos(); // añadir esta funcion
@@ -88,6 +105,10 @@ void Animal::set_edad(int ed){
 	edad = ed;
 }
 
+/*  metodo crecer, que recibe cuantos años crecio
+ *  una mascota desde el main y modifica los valores
+ * de edad, altura, peso y largo del animal
+ */
 void Animal::crecer(int year){
 	edad = edad + year;
 	for (int i = 0; i < year; i++){
@@ -97,6 +118,12 @@ void Animal::crecer(int year){
 	}
 }
 
+/* metodo buscar animal, que tiene una lista de nombres ya establecida
+ *  y recibe el atributo de nombre, usando el ciclo for lo convierte a minusculas
+ * para evitar errores de comparacion y despues con otro for busca si el nombre del 
+ * animal se encuetra en el arreglo, si lo hace regresa un 1 y si no regresa un 0 
+ * que en el main se evalua lo que significa
+ */
 int Animal::buscar_animal(string nombre_animal){
 	int valor;
 	string nombres_previos[] = {"alex", "camilo", "milo", "toby", "fox", "papi", "pelusa", "blacky", "rufino", "tonton", "chiquito", "bebe", "flowy"};
@@ -115,6 +142,12 @@ int Animal::buscar_animal(string nombre_animal){
 	}
 	return valor;
 }
+/* metodo mostrar datos, imprime 
+ * los valores de los atributos
+ * que fueron ingresados por 
+ * el usuario para mostrarselos
+ * posteriormente
+ */
 void Animal::mostrar_datos(){
 	cout << "Nombre: " << nombre << endl;
 	cout << "Raza: " << raza << endl;
@@ -124,18 +157,29 @@ void Animal::mostrar_datos(){
 	cout << "Peso: " << peso << endl;
 	cout << "Edad: " << edad << endl;
 }//FIN de la clase padre Animal.
-// clase canino hija
+
+/*
+ *  Clase Heredada Canino, que ademas de los atributos
+ * de la clase padre, tiene el atributo del tamanio del 
+ * hocio y tres metodos propios que son ladrar, jugar y
+ * mostrar datos 
+ */
 class Canino:public Animal{
 	private:
+		// atributo propio de la clase Canino
 		int tam_hocico;
 	public:
+		// Constructores de la clase Canino que incluyen el constructor de la clase Animal
 		Canino(): Animal(), tam_hocico(0.0){};
 		Canino(string nom, string raz, string col, float alt, float lar, float pes, int ed, float tam_h) : Animal (nom, raz, col, alt, lar, pes, ed), tam_hocico(tam_h){};
+		// Metodos propios de la clase canino
 		void ladrar();
 		void jugar();
-		float get_tam_hocico();
-		void set_tam_hocico(float);
 		void datos_canino();
+		// getter de la clase canino
+		float get_tam_hocico();
+		// setter de la clase canino
+		void set_tam_hocico(float);
 };
 float Canino::get_tam_hocico(){
 	return tam_hocico;
@@ -144,7 +188,11 @@ float Canino::get_tam_hocico(){
 void Canino::set_tam_hocico(float tam_h){
 	tam_hocico = tam_h;
 }
-
+/*
+ * El metodo ladrar regresa una mini historia 
+ * que pasaría si tu canino te ladrase
+ * por felicidad
+ */
 void Canino::ladrar(){
 	cout << "Wooof wooof woof woof" << endl;
 	cout << "*El perro te ladra energicamente*" <<endl;
@@ -152,26 +200,46 @@ void Canino::ladrar(){
 	cout << endl;
 }
 
+/*
+ * El metodo jugar regresa una mini historia
+ * que pasaria si acariciaras a tu canino
+ * y este lo disfrute
+ */
 void Canino::jugar(){
 	cout << "*Acaricias al perro*" << endl;
 	cout << "*El perro te mira contento*" << endl;
 	ladrar(); 
 
 }
+/* metodo datos canino, que imprime directamente
+ * un mensaje del tamanio del hocico y el valor
+ * de este para mostrarlo al usuario
+ */
 void Canino::datos_canino(){
 	mostrar_datos();
 	cout << "Tamanio del hocico: " << tam_hocico << endl;
 	cout << endl;
 }// fin clase canino hija
-//clase felino hija
+
+/*
+ *  Clase Heredada Felino, que ademas de los atributos
+ * de la clase padre, tiene el atributo del tamanio del 
+ * salto y tres metodos propios que son maullar, saltar
+ * y datos felino
+ */
 class Felino:public Animal{
 	private:
+		// atributo clase felino
 		float tam_salto;
 	public:
+		// constructores clase felino
 		Felino(): Animal(), tam_salto(0.0){};
 		Felino(string nom, string raz, string col, float alt, float lar, float pes, int ed, float tamsal) : Animal (nom, raz, col, alt, lar, pes, ed), tam_salto(tamsal){};
+		// getter clase felino
 		float get_tam_salto();
+		// setter clase felino
 		void set_tam_salto(float );
+		// metodos clase felino
 		void maullar();
 		void saltar();
 		void datos_felino();
@@ -184,7 +252,11 @@ float Felino::get_tam_salto(){
 void Felino::set_tam_salto(float tamsal){
 	tam_salto = tamsal;
 }
-
+/*
+ * metodo maullar imprime una mini historia de 
+ * lo que pasaria si tu gato te maullara
+ * porque tiene hambre
+ */
 void Felino::maullar(){
 	cout << "Miauuuuuu miau miau miauuuu" << endl;
 	cout << "*Tu felino te ladra con energias...*" << endl;
@@ -192,26 +264,47 @@ void Felino::maullar(){
 	cout << endl;
 }
 
+/*
+ * metodo saltar que ademas de presentar una mini
+ * historia muestra el valor de salto que daria tu 
+ * felino porque se ha asustado
+ */
 void Felino::saltar(){
 	cout << "*Tu felino se asusto de repente...*" << endl;
 	cout << "*Ha saltado " << tam_salto << " cm" << endl;
 	cout << "*Ha aterrizado sin problemas*" << endl;
 	cout << endl;
 }
+
+/* metodo datos felino, que imprime directamente
+ * un mensaje del tamanio del salto y el valor
+ * de este para mostrarlo al usuario
+ */
 void Felino::datos_felino(){
 	mostrar_datos();
 	cout << "Tamanio de salto: " << tam_salto << endl;
 	cout << endl;
 }//fin clase felino
-// inicio clase Ave hija
+
+/*
+ *  Clase Heredada Ave, que ademas de los atributos
+ * de la clase padre, tiene el atributo del tamanio de las 
+ * alas y tres metodos propios que son volar, cantar
+ * y datos ave
+ */
 class Ave:public Animal{
 	private:
+		// atributos clase ave
 		float tam_alas;
 	public:
+		// constructores clase Ave
 		Ave(): Animal(), tam_alas(0.0){};
 		Ave(string nom, string raz, string col, float alt, float lar, float pes, int ed, float tam_al) : Animal (nom, raz, col, alt, lar, pes, ed), tam_alas(tam_al){};
+		// getter clase Ave
 		float get_tam_alas();
+		// setter clase Ave
 		void set_tam_alas(float);
+		// metodos propios de la clase Ave
 		void datos_ave();
 		void volar();
 		void cantar();
@@ -223,12 +316,20 @@ void Ave::set_tam_alas(float tam_al){
 	tam_alas = tam_al;
 }
 
+/* metodo datos ave, que imprime directamente
+ * un mensaje del tamanio de las alas y el valor
+ * de estas para mostrarlo al usuario
+ */
 void Ave::datos_ave(){
 	mostrar_datos();
 	cout << "Tamanio de las alas: " << tam_alas << endl;
 	cout << endl;
 }
 
+/* metodo volar que muestra una mini historia
+ * de lo que pasaria si tu ave empezara a volar
+ * pero parara porque se canso
+ */
 void Ave::volar(){
 	cout << "tu ave quiere despegar las alas un poco..." << endl;
 	cout << "tu ave ha comenzado a volar" << endl;
@@ -236,6 +337,10 @@ void Ave::volar(){
 	cout << endl;
 }
 
+/* metodo cantar, muestra una mini historia
+ * de lo que pasaria si tu ave empezara a cantar
+ * pero no te gusta su canto.
+ */
 void Ave::cantar(){
 	cout << "Despacito Quiero respirar tu cuello despacito Deja que te diga cosas al oido Para que te acuerdes si no estas conmigo Despacito" << endl;
 	cout << "tu ave ha cantado" << endl;

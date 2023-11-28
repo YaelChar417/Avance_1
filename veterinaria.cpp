@@ -1,6 +1,19 @@
 #include <iostream>
 #include <string>
 using namespace std;
+/*
+ * Proyecto Veterinaria
+ * Yael Charles Marin
+ * A01711111
+ * 30/11/2023
+ */
+ /*
+ * Descripcion: este es un proyecto demo para la clase de Pensamiento
+ * Computacional Orientado a Objetos. En este programa se pueden acceder
+ * a 3 clases diferentes donde se capturan datos de animales o trabajadores
+ * o tambíen verificar la disponibilidad de un servicio.
+*/
+//Biliotecas
 #include "Animal.h"
 #include "Trabajador.h"
 #include "Servicios.h"
@@ -25,7 +38,7 @@ int main()
 	
 	do //permite que el programa se cicle con ayuda de la variable repetir, y se repite siempre y cuando sea igual a 1.
 	{
-		cout << "	MENU:	" << endl;
+		cout << "	MENU:	" << endl; //menu principal
 		cout << "1.- Clase Animal" << endl;
 		cout << "2.- Clase Trabajador" << endl;
 		cout << "3.- Clase Servicios" << endl;
@@ -44,7 +57,7 @@ int main()
 				
 				switch(opcion_animal)//Este switch permite elegir entre las tres clases heredadas que forman parte de la clase animal
 				{
-					case 1:
+					case 1: // registra la subclase Canino
 						cout << "Ingrese el nombre de su mascota: ";
 						cin >> nombre;
 						cout << "Ingrese la raza de su mascota: ";
@@ -62,6 +75,7 @@ int main()
 						cout << "Ingrese el tamanio del hocico de su mascota: ";
 						cin >> tam_hocico;
 						cout << endl;
+						//Entrega los parametros a la clase para poder desarrollar los metodos de clase.
 						canino1.set_nombre(nombre);
 						canino1.set_raza(raza);
 						canino1.set_color(color);
@@ -72,13 +86,13 @@ int main()
 						canino1.set_tam_hocico(tam_hocico);
 						canino1.datos_canino();
 						
-						cout << "Cuantos anios ha crecido tu canino: ";
-						cin >> crecimiento;
+						cout << "Cuantos anios ha crecido tu canino: "; 
+						cin >> crecimiento; // llama a la funcion crecimiento 
 						canino1.crecer(crecimiento);
-						canino1.datos_canino();
+						canino1.datos_canino(); //imprime los datos del canino
 						
 						cout << "Vamos a buscar a tu canino: " << nombre << endl;
-						valor = canino1.buscar_animal(nombre);
+						valor = canino1.buscar_animal(nombre); // llama a la funcion buscar canino por su nombre
 						if (valor == 1) //este if busca a tu canino de entre una lista de nombres ya preestablecidos
 						{
 							cout <<"La mascota ha sido encotrada!!!\n" << endl;
@@ -92,7 +106,7 @@ int main()
 								cout << "error...\n" << endl;
 							}
 						}
-						
+						// funciones propias de la clase canino que son dialogos que tendrías con tu canino
 						cout << nombre << " ha decidido ladrarte" << endl;
 						canino1.ladrar();
 						cout << "Tu decides jugar con tu mascota" << endl;
@@ -100,6 +114,7 @@ int main()
 						
 						break;
 					case 2: // este case es de la segunda clase heredada de FELINO
+						//Registrando datos de tu felino
 						cout << "Ingrese el nombre de su mascota: ";
 						cin >> nombre;
 						cout << "Ingrese la raza de su mascota: ";
@@ -117,6 +132,7 @@ int main()
 						cout << "Ingrese el tamanio del salto de su mascota: ";
 						cin >> tam_salto;
 						cout << endl;
+						//Ingresa los datos a la clase de felino para poder entregar los metodos propios de la clase
 						felino1.set_nombre(nombre);
 						felino1.set_raza(raza);
 						felino1.set_color(color);
@@ -128,12 +144,12 @@ int main()
 						felino1.datos_felino();
 						
 						cout << "Cuantos anios ha crecido tu felino: ";
-						cin >> crecimiento;
-						felino1.crecer(crecimiento);
-						felino1.datos_felino();
+						cin >> crecimiento; 
+						felino1.crecer(crecimiento);//llama a la funcion  crecimiento del felino
+						felino1.datos_felino(); //muestra los datos del felino
 						
 						cout << "Vamos a buscar a tu felino: " << nombre << endl;
-						valor = felino1.buscar_animal(nombre);
+						valor = felino1.buscar_animal(nombre); //manda llamar a la funcion busca animal que busca por el nombre
 						if (valor == 1) //este if busca a tu felino de entre una lista de nombres ya preestablecidos
 						{
 							cout <<"La mascota ha sido encotrada!!!\n" << endl;
@@ -147,11 +163,14 @@ int main()
 								cout << "error...\n" << endl;
 							}
 						}
+						//Metodos propios de la clase felino.
 						cout << nombre << " ha decidido maullar al verte" << endl;
 						felino1.maullar();
 						felino1.saltar();
 						break;
+						
 					case 3: //Este case es de la clase AVE
+						//ingresa los parametros de la clase AVE para que hagan sus metodos 
 						cout << "Ingrese el nombre de su mascota: ";
 						cin >> nombre;
 						cout << "Ingrese la raza de su mascota: ";
@@ -169,6 +188,7 @@ int main()
 						cout << "Ingrese el tamanio de alas de su mascota: ";
 						cin >> tam_alas;
 						cout << endl;
+						//envia los parametros a la clase
 						ave1.set_nombre(nombre);
 						ave1.set_raza(raza);
 						ave1.set_color(color);
@@ -181,11 +201,11 @@ int main()
 						
 						cout << "Cuantos anios ha crecido tu ave: ";
 						cin >> crecimiento;
-						ave1.crecer(crecimiento);
-						ave1.datos_ave();
+						ave1.crecer(crecimiento); //llama a la funcion crecimiento
+						ave1.datos_ave(); // muestra los datos de tu ave
 						
 						cout << "Vamos a buscar a tu ave: " << nombre << endl;
-						valor = ave1.buscar_animal(nombre);
+						valor = ave1.buscar_animal(nombre); //manda llamar la funcion de buscar animal que busca por su nombre
 						if (valor == 1)  //este if busca a tu ave de entre una lista de nombres ya preestablecidos
 						{
 							cout <<"La mascota ha sido encotrada!!!\n" << endl;
@@ -199,18 +219,21 @@ int main()
 								cout << "error...\n" << endl;
 							}
 						}
+						//metodos propios de la clase ave
 						ave1.volar();
 						ave1.cantar();
 						break;
 					default: //Este default es parte del switch que navega entre las clases heredadas de ANIMAL mas no el de las tres clases
 						cout << "Opcion no reconocida..." << endl;
 				}
+				// Verifica si el usuario aun quiere seguir repitiendo el codigo despues de ingresar los datos de una de las clases
 				cout << "Desea repetir el programa: " << endl;
 				cout << "1.- SI		0.- NO" << endl;
 				cin >> repetir;
 				break;
 				
 			case 2: 	//		CLASE 		TRABAJADOR
+				// registra los valores que se mandarán a la clase trabajador.
 				cout << endl;
 				cout << "Ingrese su primer nombre: ";
 				cin >> nombre;
@@ -227,7 +250,7 @@ int main()
 				cout << "Cuantos anios llevas trabajando en la empresa: ";
 				cin >> years_trabajados;
 				cout << endl;
-				
+				//Envia los datos a la clase trabajador.
 				empleado_1.worker.set_nombre(nombre);
 				empleado_1.worker.set_id(id);
 				empleado_1.worker.set_puesto(puesto);
@@ -235,25 +258,26 @@ int main()
 				empleado_1.set_horas(horas_trabajadas);
 				empleado_1.set_dias(dias_trabajados);
 				
-				empleado_1.mostrar_datos();
+				empleado_1.mostrar_datos(); // muestra los datos ingresados de la clase trabajador
+				// Retorna los datos de pago por hora, las horas que trabajo y los dias para mostrarlos igualmente
 				cout << "Paga por hora: " << empleado_1.get_pago_hora() << endl;
 				cout << "Horas trabajadas: " << empleado_1.get_horas() << endl;
 				cout << "Dias trabajados: " << empleado_1.get_dias() << endl;
 				cout << endl;
-				
+				// Verifica si los datos son correctos, si lo son continua el codigo, si no detiene el programa.
 				cout <<" LOS DATOS INGRESADOS SON CORRECTOS:" << endl;
 				cout <<"0.- NO			1.- SI" << endl;
 				cin >> opcion;
 				
 				if (opcion == 1) //este if realiza la tarea de que si se ingresa un 0 no se realiza nada referente a los metodos de clase en cambio si se 
 				{				//añade un 1 hace todos los calculos.
-					paga_diaria = empleado_1.sueldo_diario(empleado_1.get_pago_hora(), empleado_1.get_horas());
-					paga_semanal = empleado_1.sueldo_semanal(paga_diaria, empleado_1.get_dias());
-					bono = empleado_1.bonos(years_trabajados);
+					paga_diaria = empleado_1.sueldo_diario(empleado_1.get_pago_hora(), empleado_1.get_horas()); // calcula el sueldo diario mandandole el pago por hora y las horas que trabajo
+					paga_semanal = empleado_1.sueldo_semanal(paga_diaria, empleado_1.get_dias()); // usando la paga diaria y los dias trabajados calcula el sueldo semanal
+					bono = empleado_1.bonos(years_trabajados); // regresa el bono que merece el usuario dependiendo los años trabajados
 					cout << "Sueldo diario: " << paga_diaria << endl;
 					cout << "Sueldo semanal: " << paga_semanal << endl;
 					cout << "Bono por years trabajados: " << bono << endl;
-					
+					// Pregunta por que opcion busca a un empleado
 					cout << "\nIngrese la opcion deseada de busqueda..." << endl;
 					cout << "1.- Buscar por NOMBRE" << endl;
 					cout << "2.- Buscar por ID" << endl;
@@ -262,7 +286,7 @@ int main()
 					{
 						case 1: //caso donde buscas por nombre
 							cout << "Buscando si el trabajador esta en la empresa por su nombre"<< endl;
-							valor = worker.buscar_empleado(nombre);
+							valor = worker.buscar_empleado(nombre); // llama a la funcion para buscar por nombre
 							
 							if (valor == 1)// este switch imprime si el empleado fue encontrado en la lista o si no lo fue
 							{
@@ -271,12 +295,13 @@ int main()
 							{
 								cout << "No trabajas en esta empresa :(\n" << endl; 
 							}
-								worker.merecedor_ascenso(years_trabajados);
+								worker.merecedor_ascenso(years_trabajados); // dependiendo de los años trabajados verifica si merece un ascenso el trabajador 
 								cout << endl;
 							break;
 						case 2: // caso donde buscas por id
 							cout << "Buscando por id " << endl;
-							valor = worker.buscar_id(id);
+							valor = worker.buscar_id(id); // llama a la funcion para buscar por id
+							
 							if (valor == 1)// este switch imprime si el empleado fue encontrado en la lista o si no lo fue
 							{
 								cout << "Efectivamente trabajas en esta empresa ;)\n" << endl;
@@ -284,7 +309,7 @@ int main()
 							{
 								cout << "No trabajas en esta empresa :(\n" << endl; 
 							}
-								worker.merecedor_ascenso(years_trabajados);
+								worker.merecedor_ascenso(years_trabajados); // dependiendo de los años trabajados verifica si mereces un ascenso en el trabajo
 								cout << endl;
 							break;
 						default: //este default forma parte del switch de los diferentes metodos de busqueda y no del switch principal.
@@ -301,6 +326,7 @@ int main()
 						cout << "OPCION NO IDENTIFICADA...\n" << endl;
 					}
 				}
+				// verifica si el usuario desea seguir repitiendo el programa despues de haber hecho el proceso de la clase trabajador
 				cout << "Desea repetir el programa: " << endl;
 				cout << "1.- SI		0.- NO" << endl;
 				cin >> repetir;	
@@ -308,6 +334,7 @@ int main()
 				
 			case 3: 	//		CLASE 		SERVICIOS
 				cout << endl;
+				// Menu de la clase servicios para que el usurio indique cual desea solicitar
 				cout << "Selecciona el servicio que deseas realizar: "<< endl;
 				cout << "1.- Vacunacion" << endl;
 				cout << "2.- Desparacitacion" << endl;
@@ -316,6 +343,7 @@ int main()
 				switch(opcion_servicio) //este switch maneja las 3 diferentes clases heredadas de la clase padre servicios
 				{
 					case 1: // este case es el de la clase vacunacion
+						// llena los valores que se asignaran a los parametros de la clase vacunacion
 						vac1.set_tipo_servicio("Vacunacion");
 						vac1.set_precio(540);
 						vac1.set_duracion(0.5);
@@ -324,22 +352,26 @@ int main()
 						vac1.set_cantidad_animales(cant_animales);
 						cout << endl;
 						
+						// imprime los valores al usuario
 						cout << "Tipo de servicio: " << vac1.get_tipo_servicio() << endl;
 						cout << "Precio por mascota: " << vac1.get_precio() << endl;
 						cout << "Duracion en horas: " << vac1.get_duracion() << endl;
 						cout << endl;
+						// llama a la funcion calcula costo y entrega valores al usuario
 						vac1.calcula_costo(540, 0.5, cant_animales);
 						cout << "Duracion estimada: " << vac1.get_duracion() << " horas" << endl;
 						cout << "Precio total: " << vac1.get_precio() << endl;
-						vac1.disponibilidad(vac1.get_tipo_servicio());
+						vac1.disponibilidad(vac1.get_tipo_servicio()); // verifica la disponibilidad que hay en la vacunacion
 						cout << endl;
 						
+						// metodos propios de la clas vacunacion
 						vac1.vacunar_mascota();
 						vac1.dar_premio();
 						
 						break;
 					
 					case 2: // este caso es de la clase desparacitacion
+						// llena los valores que se asignaran a la clase desparacitacion
 						desp1.set_tipo_servicio("Desparacitacion");
 						desp1.set_precio(325);
 						desp1.set_duracion(0.2);
@@ -347,21 +379,23 @@ int main()
 						cin >> cant_animales;
 						desp1.set_cantidad_animales(cant_animales);
 						cout << endl;
-						
+						// entrega valores al usuario
 						cout << "Tipo de servicio: " << desp1.get_tipo_servicio() << endl;
 						cout << "Precio por mascota: " << desp1.get_precio() << endl;
 						cout << "Duracion en horas: " << desp1.get_duracion() << endl;
 						cout << endl;
+						// manda llamar a la funcion calcula costo y entrega valores al usuario
 						desp1.calcula_costo(325, 0.2, cant_animales);
 						cout << "Duracion estimada: " << desp1.get_duracion() << " horas" << endl;
 						cout << "Precio total: " << desp1.get_precio() << endl;
-						vac1.disponibilidad(desp1.get_tipo_servicio());
+						vac1.disponibilidad(desp1.get_tipo_servicio()); // verifica la disponibilidad de la desparacitacion
 						cout << endl;
-									
+						// metodo propio de la clase desparacitacion
 						desp1.desparacitar_mascota();
 						break;
 						
 					case 3: // este caso es del corte de pelo
+						// llena valores que se asiganaran a la clase haircut
 						hc1.set_tipo_servicio("Corte");
 						hc1.set_precio(475);
 						hc1.set_duracion(1.5);
@@ -369,17 +403,18 @@ int main()
 						cin >> cant_animales;
 						hc1.set_cantidad_animales(cant_animales);
 						cout << endl;
-						
+						// muestra los valores al usuario
 						cout << "Tipo de servicio: " << hc1.get_tipo_servicio() << endl;
 						cout << "Precio por mascota: " << hc1.get_precio() << endl;
 						cout << "Duracion en horas: " << hc1.get_duracion() << endl;
 						cout << endl;
+						// manda llamar a la funcion calcula costo y entrega valores al usuario
 						hc1.calcula_costo(475, 1.5, cant_animales);
 						cout << "Duracion estimada: " << hc1.get_duracion() << " horas" << endl;
 						cout << "Precio total: " << hc1.get_precio() << endl;
 						hc1.disponibilidad(hc1.get_tipo_servicio());
 						cout << endl;
-						
+						// metodos propios de la clase haircut
 						hc1.baniar();
 						hc1.cortar_pelo();
 						break;
@@ -387,6 +422,7 @@ int main()
 					default: //este default forma parte de la clase servicios mas no del switch principal que maneja las 3 clases principales
 						cout << "Opcion no reconocida..."<< endl;
 						break;
+				// despues de terminar todo el procedimiento pregunta al usuario si va a repetir el programa una vez mas
 				cout << "Desea repetir el programa: " << endl;
 				cout << "1.- SI		0.- NO" << endl;
 				cin >> repetir;

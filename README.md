@@ -17,11 +17,13 @@ CASO 3:
 al entrar te deja seleccionar entre tres diferentes opciones así que podría fallar si ingresaras un numero invalido, ingresas a una de las subclases ya sea vacunacion, desparacitacion o corte de pelo, donde estos tres ya tienen los parametros de tipo de servicio, precio y la duracion solo dejandote ingresar el numero de animales así que solo fallaria si ingresas un string o un numero float.
 
 ## Novedades avance 3:
-- Se añadieron comentarios explicando el funcionamiento del codigo y las funciones
+- Se eliminaron funciones de las clases que podrían causar confusion en el usuario.
+
+- Se añadieron comentarios explicando el funcionamiento del codigo y las funciones.
 
 - La clase Animal y la clase Servicios ahora son clases padres de 3 clases cada una.
 
-- La clase Trabajador tiene ahora una composicion de datos del trabajador
+- La clase Trabajador tiene ahora una composicion de datos del trabajador.
 
 - Se modifico el UML para hacerlo mas simple debido a que las clases padre heredan sus atributos y metodos a las clases hijas.
 

@@ -33,8 +33,6 @@ class Datos_trabajador{
 		void set_nombre(string);
 		void set_puesto(string);
 		//metodos propios de la clase 
-		int buscar_empleado(string);
-		int buscar_id(int);
 		void merecedor_ascenso(int);
 };
 int Datos_trabajador::get_id(){
@@ -55,54 +53,6 @@ string Datos_trabajador::get_puesto(){
 void Datos_trabajador::set_puesto(string pues){
 	puesto = pues;
 }
-
-/* Metodo buscar empleado, que recibe el nombre del trabajador
- * y con un arreglo de nombres previos que comparará si aparece
- * el nombre en uno de ellos, primero se usa un for para convertir
- * a minusculas el nombre y evitar errores de comparacion, despues
- * con otro for se compara si esta el nombre en el arreglo, si lo esta
- * regresa 1 y si no regresa 0 y en el main se realiza la comparacion
- */
-int Datos_trabajador::buscar_empleado(string nombre){
-	int valor;
-	string nombres_previos[] = {"martin", "francisco", "benji", "maria", "fernanda", "erick", "ana", "paula", "jose", "alejandro", "roberto", "jade", "sofia"};
-	
-	for (int i = 0; i < nombre.size(); i++){ //convierte el valor ingresado a minusculas para hacer una comparacion correcta
-		nombre[i] = tolower(nombre[i]);
-	}
-	
-	for(const string& nombre_previo : nombres_previos){
-		if (nombre == nombre_previo){
-			valor = 1;
-			break;
-		}else{
-			valor = 0;
-		}
-	}
-	return valor;
-}
-
-/* Metodo buscar id que recibe el id del trabajador y tiene
- * un arreglo con id´s anteriores y emplea un for para 
- * comparar el id con los demas de los arreglos y en caso
- * de coincidir regresa el valor de 1 y si no el valor de 0
- * y en el main muestra la comparacion.
- */
-int Datos_trabajador::buscar_id(int id){
-	int valor;
-	int id_previos[] = {1234, 3241, 1111, 2222, 3221, 4411, 1243, 4321, 3214};
-	
-	for(const int& id_buscar : id_previos){
-		if(id == id_buscar){
-			valor = 1;
-			break;
-		} else{
-			valor = 0;
-		}
-	}
-	return valor;
-}
-
 /* Metodo merecedor de ascenso que recibe los
  * años trabajados por el trabajador y si estos
  * son de entre 0-10 no merece un ascenso, en cambio

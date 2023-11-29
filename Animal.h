@@ -46,7 +46,6 @@ class Animal {
 		void set_edad(int);
 		// metodos de la clase animal
 		void crecer(int);
-		int buscar_animal(string);
 		void mostrar_datos(); // añadir esta funcion
 };
 
@@ -118,30 +117,6 @@ void Animal::crecer(int year){
 	}
 }
 
-/* metodo buscar animal, que tiene una lista de nombres ya establecida
- *  y recibe el atributo de nombre, usando el ciclo for lo convierte a minusculas
- * para evitar errores de comparacion y despues con otro for busca si el nombre del 
- * animal se encuetra en el arreglo, si lo hace regresa un 1 y si no regresa un 0 
- * que en el main se evalua lo que significa
- */
-int Animal::buscar_animal(string nombre_animal){
-	int valor;
-	string nombres_previos[] = {"alex", "camilo", "milo", "toby", "fox", "papi", "pelusa", "blacky", "rufino", "tonton", "chiquito", "bebe", "flowy"};
-	
-	for (int i = 0; i < nombre_animal.size(); i++){ //convierte el valor ingresado a minusculas para hacer una comparacion correcta
-		nombre_animal[i] = tolower(nombre_animal[i]);
-	}
-	
-	for(const string& nombre_previo : nombres_previos){
-		if (nombre_animal == nombre_previo){
-			valor = 1;
-			break;
-		}else{
-			valor = 0;
-		}
-	}
-	return valor;
-}
 /* metodo mostrar datos, imprime 
  * los valores de los atributos
  * que fueron ingresados por 
@@ -259,7 +234,7 @@ void Felino::set_tam_salto(float tamsal){
  */
 void Felino::maullar(){
 	cout << "Miauuuuuu miau miau miauuuu" << endl;
-	cout << "*Tu felino te ladra con energias...*" << endl;
+	cout << "*Tu felino te maulla con energias...*" << endl;
 	cout << "*Parece tener algo de hambre...*";
 	cout << endl;
 }

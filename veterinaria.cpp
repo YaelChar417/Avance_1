@@ -90,23 +90,8 @@ int main()
 						cin >> crecimiento; // llama a la funcion crecimiento 
 						canino1.crecer(crecimiento);
 						canino1.datos_canino(); //imprime los datos del canino
-						
-						cout << "Vamos a buscar a tu canino: " << nombre << endl;
-						valor = canino1.buscar_animal(nombre); // llama a la funcion buscar canino por su nombre
-						if (valor == 1) //este if busca a tu canino de entre una lista de nombres ya preestablecidos
-						{
-							cout <<"La mascota ha sido encotrada!!!\n" << endl;
-						}else
-						{
-							if (valor == 0)
-							{
-								cout << "La mascota no ha sido encontrada\n" << endl;
-							}else
-							{
-								cout << "error...\n" << endl;
-							}
-						}
 						// funciones propias de la clase canino que son dialogos que tendrías con tu canino
+						cout << "****MINI - HISTORIA****" << endl;
 						cout << nombre << " ha decidido ladrarte" << endl;
 						canino1.ladrar();
 						cout << "Tu decides jugar con tu mascota" << endl;
@@ -147,24 +132,9 @@ int main()
 						cin >> crecimiento; 
 						felino1.crecer(crecimiento);//llama a la funcion  crecimiento del felino
 						felino1.datos_felino(); //muestra los datos del felino
-						
-						cout << "Vamos a buscar a tu felino: " << nombre << endl;
-						valor = felino1.buscar_animal(nombre); //manda llamar a la funcion busca animal que busca por el nombre
-						if (valor == 1) //este if busca a tu felino de entre una lista de nombres ya preestablecidos
-						{
-							cout <<"La mascota ha sido encotrada!!!\n" << endl;
-						}else
-						{
-							if (valor == 0)
-							{
-								cout << "La mascota no ha sido encontrada\n" << endl;
-							}else
-							{
-								cout << "error...\n" << endl;
-							}
-						}
 						//Metodos propios de la clase felino.
-						cout << nombre << " ha decidido maullar al verte" << endl;
+						cout << "****MINI - HISTORIA****" << endl;
+						cout << nombre << " ha decidido maullar al verte\n" << endl;
 						felino1.maullar();
 						felino1.saltar();
 						break;
@@ -203,23 +173,8 @@ int main()
 						cin >> crecimiento;
 						ave1.crecer(crecimiento); //llama a la funcion crecimiento
 						ave1.datos_ave(); // muestra los datos de tu ave
-						
-						cout << "Vamos a buscar a tu ave: " << nombre << endl;
-						valor = ave1.buscar_animal(nombre); //manda llamar la funcion de buscar animal que busca por su nombre
-						if (valor == 1)  //este if busca a tu ave de entre una lista de nombres ya preestablecidos
-						{
-							cout <<"La mascota ha sido encotrada!!!\n" << endl;
-						}else
-						{
-							if (valor == 0)
-							{
-								cout << "La mascota no ha sido encontrada\n" << endl;
-							}else
-							{
-								cout << "error...\n" << endl;
-							}
-						}
 						//metodos propios de la clase ave
+						cout << "****MINI - HISTORIA****" << endl;
 						ave1.volar();
 						ave1.cantar();
 						break;
@@ -277,45 +232,9 @@ int main()
 					cout << "Sueldo diario: " << paga_diaria << endl;
 					cout << "Sueldo semanal: " << paga_semanal << endl;
 					cout << "Bono por years trabajados: " << bono << endl;
-					// Pregunta por que opcion busca a un empleado
-					cout << "\nIngrese la opcion deseada de busqueda..." << endl;
-					cout << "1.- Buscar por NOMBRE" << endl;
-					cout << "2.- Buscar por ID" << endl;
-					cin >> opcion;
-					switch(opcion) // este switch permite escoger por cual parametro buscar a un empleado usando dos listas preestablecidas de nombres y ids
-					{
-						case 1: //caso donde buscas por nombre
-							cout << "Buscando si el trabajador esta en la empresa por su nombre"<< endl;
-							valor = worker.buscar_empleado(nombre); // llama a la funcion para buscar por nombre
-							
-							if (valor == 1)// este switch imprime si el empleado fue encontrado en la lista o si no lo fue
-							{
-								cout << "Efectivamente trabajas en esta empresa ;)\n" << endl;
-							}else 
-							{
-								cout << "No trabajas en esta empresa :(\n" << endl; 
-							}
-								worker.merecedor_ascenso(years_trabajados); // dependiendo de los años trabajados verifica si merece un ascenso el trabajador 
-								cout << endl;
-							break;
-						case 2: // caso donde buscas por id
-							cout << "Buscando por id " << endl;
-							valor = worker.buscar_id(id); // llama a la funcion para buscar por id
-							
-							if (valor == 1)// este switch imprime si el empleado fue encontrado en la lista o si no lo fue
-							{
-								cout << "Efectivamente trabajas en esta empresa ;)\n" << endl;
-							}else 
-							{
-								cout << "No trabajas en esta empresa :(\n" << endl; 
-							}
-								worker.merecedor_ascenso(years_trabajados); // dependiendo de los años trabajados verifica si mereces un ascenso en el trabajo
-								cout << endl;
-							break;
-						default: //este default forma parte del switch de los diferentes metodos de busqueda y no del switch principal.
-							cout << "La opcion ingresada no fue valida..." << endl;
-							break;
-					}
+					cout << "Has trabajado " << years_trabajados << " anios ";
+					worker.merecedor_ascenso(years_trabajados);
+					cout << endl;
 				}else // este else forma parte de la clase Trabajador 
 				{
 					if (opcion == 0) // si se ingresa un 0 no se realiza ningun procedimiento
@@ -365,6 +284,7 @@ int main()
 						cout << endl;
 						
 						// metodos propios de la clas vacunacion
+						cout << "**** MINI - HISTORIA ****" << endl;
 						vac1.vacunar_mascota();
 						vac1.dar_premio();
 						
@@ -391,6 +311,7 @@ int main()
 						vac1.disponibilidad(desp1.get_tipo_servicio()); // verifica la disponibilidad de la desparacitacion
 						cout << endl;
 						// metodo propio de la clase desparacitacion
+						cout << "**** MINI - HISTORIA ****" << endl;
 						desp1.desparacitar_mascota();
 						break;
 						
@@ -415,6 +336,7 @@ int main()
 						hc1.disponibilidad(hc1.get_tipo_servicio());
 						cout << endl;
 						// metodos propios de la clase haircut
+						cout << "**** MINI - HISTORIA ****" << endl;
 						hc1.baniar();
 						hc1.cortar_pelo();
 						break;
